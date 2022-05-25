@@ -1,7 +1,7 @@
-function photographerFactory(data) {
+  function photographerFactory(data) {
     const { name, portrait } = data;
 
-    const picture = `assets/photographers/${portrait}`;
+    const picture = `assets/Sample_Photos/ID/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -15,3 +15,7 @@ function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
 }
+// {const data=response.photographers.find((element)=>element.id === leId);
+//   return data;
+ 
+// }

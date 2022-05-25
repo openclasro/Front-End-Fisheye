@@ -1,14 +1,49 @@
 #contact_modal {
-    display: none;
+     display: none; 
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background:white;
+    overflow: auto;
+    z-index: 1;
+
 }
 
-.photograph-header {
+
+main{
+    width: 100%;
+}
+#header{
+    margin-bottom: 20px;
+}
+
+#gallery{
+    margin-top: 100px;
+}
+
+main .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: auto;
+    border-radius: 5px;
+    width: calc(100% - 200px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+main .photograph-header .profil{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 40px;
+
 }
 
-.contact_button {
+main .photograph-header .contact_button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -20,8 +55,212 @@
     border-radius: 5px;
     cursor: pointer;
 }
+main .photograph-header .portrait{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
+.menu_tri{
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    margin-left: 90px;
+}
+/* .menu_tri label{
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 20px;
+    margin-left: 10px;
+} */
+
+.menu_tri .dropdown {
+    width: 120px;
+    
+    background-color: #901C1C;
+    font-size: inherit;
+    border: none;
+
+    color: white;
+    text-align: start;
+   
+    padding: 0px 10px; 
+    border-radius: 5px;
+    z-index: 1;
+    
+}
+
+.menu_tri .dropdown p{
+    /* position: relative; */
+    
+    background-color: #901C1C;
+    
+    border: none;
+
+    color: white;
+    text-align: start;
+    padding-left: 0px;
+    padding: 0px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    z-index: 1;
+}
+/* .menu_tri .dropdown p::after{ */
+
+/* } */
+/* .menu_tri .dropdown .listBox{ 
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+} */
+/* .menu_tri .dropdown .listBox p{
+    font-size: inherit;
+    color: white;
+}
+.menu_tri .dropdown .listBox i{
+    color: white;
+
+} */
+.menu_tri .dropdown .list-option{
+
+
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+.menu_tri .dropdown .list-option.active{
+    display: block;
+
+}
+/* .menu_tri .dropdown .list-option >button:nth-of-type(2){
+     border-top: 1px solid white;
+     border-bottom: 1px solid white;
+} */
+
+.menu_tri .dropdown .option-tri{
+    
+    width: 120px;
+    height: 52.8px;
+    background-color: #901C1C;
+    font-size: inherit;
+    border: none;
+    
+    color: white;
+    text-align: start;
+    padding-left: 0px;
+    padding: 0px 10px;
+     /* border-top: 1px solid white;  */
+
+}
+.menu_tri .dropdown .list-option >div:nth-child(2) button {
+    border-top: 1px solid white; 
+
+}
+.menu_tri .dropdown .list-option >div:nth-child(3) button {
+    border-top: 1px solid white; 
+}
+
+.menu_tri .dropdown i{
+    z-index: 2;
+    font-size: 1em;
+    color: white;
+    position: absolute;
+    top: 19px;
+    right: 12px;
+}
+
+.photos{
+    width: calc(100% - 200px);
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.photos .card img{
+    cursor: pointer;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 0 rgb(0 0 0 / 50%);
+    transition: all 0.2s;
+}
+.photos .card video{
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+    
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+    box-shadow: 2px 2px 10px 0 rgb(0 0 0 / 50%);
+    transition: all 0.2s;
+    /* z-index: -1; */
+}
+.card .discription{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.card .discription__like{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+} 
+.card .discription h3{
+    color: #901C1C;
+    font-size: 1rem;
+}
+
+.discription__like p{
+    color: #901C1C;
+}
+
+.card .discription__like i{
+    color: #901C1C;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.aside-div{
+    width: 300px;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+   justify-content: space-around;
+   align-items: center;
+    background-color: #c13131;
+}
+.aside-div .likes{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 25px;
+}
+
+.aside-div .likes i{
+    
+    font-size: 23px;
+    font-weight: 600;
+}
+.aside-div p{
+    font-weight: 600;
+    font-size: 23px;
+}
 .modal {
+    display: block;
+    top: 10px;
+    left: 10px;
+    position: relative;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -31,21 +270,27 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    
 }
 
-.modal header {
+.modal-header {
+    display: flex;
     justify-content: space-between;
     width: 100%;
+    height: 180px;
+    align-items: self-start;
 }
 
-.modal header img {
+.modal-header img {
     cursor: pointer;
+    
+
 }
 
-.modal header h2 {
-    font-size: 64px;
+.modal-header h2 {
+    font-size: 40px;
     font-weight: normal;
-    text-align: center;
+    display: flex;
 }
 
 form {
@@ -57,7 +302,8 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 30px;
+    padding-top: 20px;
 }
 
 form div {
@@ -73,4 +319,161 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form textarea{
+    width: 100%;
+}
+
+form #submit-button{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.lightbox{
+    z-index: 10;
+
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color:white;
+    
+}
+.lightbox .content{
+    position:fixed;
+    height: calc(100% - 100px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    justify-content: space-around;
+    width: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #901C1C;
+
+} 
+     
+.lightbox .content .prev{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+
+}
+.lightbox .content .prev button{
+   
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    background-color: #901C1C;
+    border: none;
+    color: #FAFAFA;
+}
+.lightbox .content .prev button i{
+    font-size: 35px;
+    
+} 
+.lightbox .content .container{
+    width: 350px;
+    height: 90%;
+    margin-top: 30px;
+}
+.lightbox .content .container .picture{
+height: 100%;
+   width: 100%;
+
+}
+
+
+.lightbox .content .container .picture .div-photo{
+    height: 100%;
+    width: 100%;
+    
+}
+.lightbox .content .container .picture .div-photo .image
+{
+    display: block;
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    margin-top: 18px;
+    border-radius: 5px;
+}
+/* .lightbox .content .container .picture .div-photo .image{
+    display: block;
+} */
+
+.lightbox .content .container .picture .div-photo video{
+    width: 100%;
+    height: 90%;
+    margin-top: 18px;
+    border-radius: 5px;
+}
+.lightbox .content .container .picture .div-photo p{
+    font-size: 18px;
+    color: #FAFAFA;
+}
+
+.lightbox .content .next{
+    
+   
+    width: 100px;
+    height: 100%;
+    flex-direction:column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+
+.lightbox .content .next >button:first-of-type{
+   
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #901C1C;
+    border: none;
+    color: #FAFAFA;
+}
+.lightbox .content .next >button:nth-child(2){
+   
+    position: absolute;
+    top: 20px;
+    
+    background-color: #901C1C;
+    border: none;
+    color: #FAFAFA;
+}
+
+.lightbox .content .next >button:first-of-type i{
+    font-size: 35px;
+}
+.lightbox .content .next >button:nth-child(2) i{
+    font-size: 35px;
+}
+
+
+.button-tri{
+    width: 120px;
+    height: 52.8px;
+    background-color: #901C1C;
+    font-size: inherit;
+    border: none;
+    /* border-top: 1px solid white; */
+    color: white;
+    text-align: start;
+    padding-left: 0px;
+    padding: 0px 10px;
 }

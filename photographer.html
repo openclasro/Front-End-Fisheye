@@ -1,36 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8bd06a7de0.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo page d accueil photographer" />
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+       
+      <div id="header">
+
+        <!-- injection du html -->
+
       </div>
+      <div    class="menu_tri">
+        <label>Trier par</label>
+        <div class="dropdown">
+        <button id="button-tri" tabindex="0"  class="button-tri">
+            <p class="order-tri" role="button" aria-label="Choix de tri"  aria-haspopup="true" aria-expanded="false">Popularité</p>
+            <i id="angle" class="fa-solid fa-angle-down"></i>
+        </button>
+
+        
+          
+          <div   id="my-options" class="list-option">
+           <div><button   tabindex="0" class="option-tri" value="popularité" aria-label="trier par popularité">Popularité</button></div>
+           <div> <button  tabindex="0"  class="option-tri" value="date" aria-label="trier par date">Date</button></div>
+            <div><button   tabindex="0"  class="option-tri"  value="titre" aria-label="trier par titre">Titre</button></div>
+          </div>
+        </div>
+        
+      </div>
+      <div id="gallery">
+
+        <!-- injection du html -->
+
+        </div>
+        <div class="lightbox"  id="lightbox" tabindex="-1">
+          <!-- injection du html -->
+        </div>
+      <aside class="aside-div">
+
+      </aside>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-label="contactez moi" aria-hidden="true">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<header class="modal-header">
+          <h2   tabindex="1" id="contact_me">Contactez-moi</h2>
+          <img src="assets/icons/close.svg"  tabindex="2" alt="cbutton close modal"   onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+				<form  id="loginForm">
+					
+						<label form="prenom">Prénom</label>
+            <input  tabindex="1" type="text" name="prenom" id="prenom" aria-label="Entrez votre prénom">
+            <p id="prenom-error" style="color:red;"></p>
+            <label form="nom">Nom</label>
+            <input  tabindex="1" type="text" name="nom" id="nom"  aria-label="Entrez votre nom">
+            <p id="nom-error" style="color:red;"> </p>
+
+            <label form="email">Email</label>
+            <input  tabindex="1" type="text" name="Email" id="email"  aria-label="Entrez votre Email">
+            <p id="Email-error" style="color:red;"></p>
+
+            <label form="message">Votre message</label>
+            <textarea  tabindex="1" name="message" id="message"  rows="10"  aria-label="Ajouter un commentaire"></textarea>
+            <p id="message-error" style="color:red;"></p>
+
+					
+          <button  tabindex="1" type="submit" id="submit-button"  aria-label="Envoyer votre formulaire">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <script src="/scripts/pages/photographer1.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+
   </body>
 </html>
