@@ -1,12 +1,14 @@
 
 
+/* exported displayModal */
+
+/*global fetchPhotographers */
+/*eslint no-undef: "error"*/
 
 async function displayModal() {
-
-
-
+    // * pour afficher le nom du photographe 
     const url_id = window.location.search;
-    // console.log(url_id);
+    // console.log(url_id);cls
     const urlSearchParams = new URLSearchParams(url_id);
     // console.log(urlSearchParams);
     const leId = parseFloat(urlSearchParams.get("id"));
@@ -22,18 +24,10 @@ async function displayModal() {
     const modalh3 = document.querySelector(".modal-header h2");
     // console.log(modalh3);
     modalh3.innerHTML = "Contactez-moi <br>" + photographerHeader;
-
-    // window.location.hash = "#contact_modal";
-
-  }
-
-
-
-
-const modal = document.getElementById("contact_modal");
-console.log(modal)
-const submitButton = document.getElementById("submit-button");
-function displayModal() {
+    
+    
+    // * pour afficher la Modal
+    
     window.location.hash = "";
 
     const modal = document.getElementById("contact_modal");
@@ -48,6 +42,8 @@ function displayModal() {
         }
 
     });
+
+
 }
 
 function closeModal() {
@@ -55,25 +51,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-
-console.log(submitButton)
-
-
-
-
-window.addEventListener("keyup",(e)=>{
-    closeModalEscape(e);
-});
-
-
-function closeModalEscape(e){
-    
-    
-    if(modal.style.display="block" && e.key ==="echap"){
-        closeModal();
-    }
-
-}
 
 
 let form = document.getElementById("loginForm");
@@ -146,7 +123,7 @@ const validPrenom = function(inputPrenom){
   
             //REGEX POUR EMAIL
            
-            let myRegexEmail =/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+            let myRegexEmail =/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
             let testEmail = myRegexEmail.test(inputEmail.value);
             let errorEmail = document.getElementById("Email-error");
           

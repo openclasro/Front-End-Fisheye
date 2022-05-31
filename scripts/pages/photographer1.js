@@ -1,12 +1,9 @@
+
+/*global displayModal */
+/*eslint no-undef: "error"*/
 let CURRENT_INDEX = 0;
 // creer une liste de likes
 let LIKES = new Array();
-async function getPhotographerById(id) {
-  const data = await fetchPhotographers();
-  const photographer = data.photographers.find((element) => element.id === id);
-  return photographer;
-}
-
 
 async function fetchPhotographers() {
   const response = await fetch("../../data/photographers.json");
@@ -49,10 +46,15 @@ async function init() {
     <h2  tabindex="0">${photographer.city},${photographer.country}</h2>
     <p  tabindex="0">${photographer.tagline}</p>
     </div>
-    <button  tabindex="0"      class="contact_button" aria-label="Contactez moi, ouvrir le formulaire" onclick="displayModal()">Contactez-moi</button>
+    <button  tabindex="0"      class="contact_button" aria-label="Contactez moi, ouvrir le formulaire">Contactez-moi</button>
     <img  tabindex="0" class="portrait" src="assets/Sample_Photos/ID/${photographer.portrait}" alt="photo de profil,${photographer.name}">`;
 
   photographerHeader.appendChild(photographerHeader__content);
+  const contact_button = document.querySelector(".contact_button");
+
+  contact_button.addEventListener('click',()=>{
+    displayModal();
+  })
 }
 
 // const hidden=document.querySelector(".hidden");
@@ -60,7 +62,7 @@ async function init() {
 const btn = document.querySelector(".button-tri");
 const option = document.querySelector(".list-option");
 // const icon = document.querySelector("i");
-let angleIcon = document.getElementById('angle');
+// let angleIcon = document.getElementById('angle');
 
 btn.addEventListener("click", () => {
   window.location.hash = "";
@@ -141,30 +143,25 @@ async function orderDisplayGallery() {
       let sortedMedia = null;
       const photographerHeader = document.querySelector("#gallery");
       photographerHeader.innerHTML = "";
-      console.log(tireCritere);
-      // photographerHeader.removeChild(photographerHeader.lastElementChild);
       switch (tireCritere) {
         case "Titre":
           sortedMedia = media.sort(dynamicSort("title"));
           displaygallery(photographer, sortedMedia);
-          
-        
           break;
         case "Date":
           sortedMedia = media.sort(dynamicSort("date"));
           displaygallery(photographer, sortedMedia);
           
-
           break;
         case "Popularité":
           sortedMedia = media.sort(dynamicSort("likes"));
           displaygallery(photographer, sortedMedia);
-          
+             
           break;
         default:
           break;
       }
-      window.location.hash = "#button-tri";
+      
     });
   });
 
@@ -224,7 +221,7 @@ function displaygallery(photographer, media) {
   
   //  intialiser la liste LIKES par des 0 suivant le nombre total des media de ce photograph
    LIKES = new Array();
-   media.forEach(element => LIKES.push(0));
+  //  media.forEach(element => LIKES.push(0));
    
   const likeButton = document.querySelectorAll('.like-heart');
    
@@ -351,9 +348,10 @@ function displaygallery(photographer, media) {
           document.querySelector('.div-photo').innerHTML = `<video  tabindex="0"  controls class="image"><source src="${newSrc}" alt="${image.title}" aria-label="${image.title}" type="video/mp4"> </video>  
           <p tabindex="0">${image.title}</p>`;
         }
+       
+        window.location.hash = "#lightbox";
       }
-
-      window.location.hash = "#lightbox";
+     
 
 
     });
@@ -451,7 +449,9 @@ async function lightbox() {
 
   function displayLightBoxMedia(index) {
     let newImage = media[index];
-    if (!newImage.hasOwnProperty("image")) {
+
+   
+    if (!Object.prototype.hasOwnProperty.call(newImage, "image")) {
       document.querySelector(
         ".div-photo"
       ).innerHTML = `<video   tabindex="0" controls class="image"> <source   src="assets/Sample_Photos/${
@@ -519,25 +519,6 @@ async function lightbox() {
   //   });
 }
 
-async function displayModal() {
-  const url_id = window.location.search;
-  // console.log(url_id);
-  const urlSearchParams = new URLSearchParams(url_id);
-  // console.log(urlSearchParams);
-  const leId = parseFloat(urlSearchParams.get("id"));
-  // console.log(leId);
-
-  const data = await fetchPhotographers();
-  //  console.log(data);
-  const photographer = data.photographers.find(
-    (element) => element.id === leId
-  );
-  // console.log(photographer);
-  const photographerHeader = photographer.name;
-  const modalh3 = document.querySelector(".modal-header h2");
-  // console.log(modalh3);
-  modalh3.innerHTML = "Contactez-moi <br>" + photographerHeader;
-}
 
 async function aside() {
   const url_id = window.location.search;
@@ -557,12 +538,12 @@ async function aside() {
 
   // console.log(asideCentent);
 
-  const asideCentent = ` <div  class="likes">
-      <span id="total-likes" role="button" aria-label="total likes"> </span>
+  const asideCentent = ` <div tabindex="0" class="likes">
+      <span  tabindex="0" id="total-likes" role="button" aria-label="total likes"> </span>
       <i class="fas fa-heart "></i>
       </div>
   
-      <p aria-label="prix par jour">${photographer.price} €/jour </p>`;
+      <p  tabindex="0" aria-label="prix par jour">${photographer.price} €/jour </p>`;
   asideDvi.innerHTML = asideCentent;
 
 
@@ -580,10 +561,8 @@ async function aside() {
 }
 
 init();
-// displaygallery();
 lightbox();
 orderDisplayGallery();
-displayModal();
 aside();
 
 

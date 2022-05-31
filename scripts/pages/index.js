@@ -78,7 +78,7 @@ async function displayData(photographers) {
     });
     console.log("fin d injection de l html");
 
-};
+}
 
 async function init() {
 
@@ -92,7 +92,7 @@ async function init() {
     displayData(photographers);
 
 
-};
+}
 console.log("etape 1: debut  init")
 
 init();

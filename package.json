@@ -18,5 +18,8 @@
   "homepage": "https://github.com/openclasro/Front-End-Fisheye#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0"
   }
 }
