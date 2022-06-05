@@ -8,21 +8,20 @@
 async function displayModal() {
     // * pour afficher le nom du photographe 
     const url_id = window.location.search;
-    // console.log(url_id);cls
+    
     const urlSearchParams = new URLSearchParams(url_id);
-    // console.log(urlSearchParams);
+    
     const leId = parseFloat(urlSearchParams.get("id"));
-    // console.log(leId);
   
     const data = await fetchPhotographers();
-    //  console.log(data);
+    
     const photographer = data.photographers.find(
       (element) => element.id === leId
     );
-    // console.log(photographer);
+    
     const photographerHeader = photographer.name;
     const modalh3 = document.querySelector(".modal-header h2");
-    // console.log(modalh3);
+    
     modalh3.innerHTML = "Contactez-moi <br>" + photographerHeader;
     
     
@@ -33,12 +32,27 @@ async function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 
+    const close_modal = document.querySelector('#close_modal');
+
+    close_modal.addEventListener("keydown",(e)=>{
+
+        console.log(e);
+            if(e.key==="Enter"){
+                closeModal();
+            }
+            
+        
+
+    })
+
     window.location.hash = "#contact_me";
     document.addEventListener('keydown',(e)=>{
         if(modal.style.display==="block"){
             if(e.key==="Escape"){
                 modal.style.display='none';
+                
             }
+            
         }
 
     });

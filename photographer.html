@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo page d accueil photographer" />
+      <img src="assets/images/logo.png" class="logo" alt="logo page d'accueil photographer" />
     </header>
     <main id="main">
        
@@ -22,15 +22,17 @@
       <div    class="menu_tri">
         <label>Trier par</label>
         <div class="dropdown">
-        <button id="button-tri" tabindex="0"  class="button-tri">
+          <button id="button-tri" tabindex="0"  class="button-tri">
             <p class="order-tri" role="button" aria-label="Choix de tri"  aria-haspopup="true" aria-expanded="false">Popularité</p>
-            <i id="angle" class="fa-solid fa-angle-down"></i>
-        </button>
+            <!-- <i id="angle" class="fa-solid fa-angle-down"></i> -->
+            
+          </button>
+          <em id="angle1" class="fa-solid fa-angle-down"></em>
 
         
           
           <div   id="my-options" class="list-option">
-           <div><button   tabindex="0" class="option-tri" value="popularité" aria-label="trier par popularité">Popularité</button></div>
+           <div><button   tabindex="0" class="option-tri" value="popularité" aria-label="trier par popularité">Popularité</button><em id="angle" class="fa-solid fa-angle-up"></em></div>
            <div> <button  tabindex="0"  class="option-tri" value="date" aria-label="trier par date">Date</button></div>
             <div><button   tabindex="0"  class="option-tri"  value="titre" aria-label="trier par titre">Titre</button></div>
           </div>
@@ -53,23 +55,23 @@
 			<div class="modal">
 				<header class="modal-header">
           <h2   tabindex="1" id="contact_me">Contactez-moi</h2>
-          <img src="assets/icons/close.svg"  tabindex="2" alt="cbutton close modal"   onclick="closeModal()" />
+          <img src="assets/icons/close.svg" id="close_modal" tabindex="2" alt="button close modal"   onclick="closeModal()" />
         </header>
 				<form  id="loginForm">
 					
-						<label form="prenom">Prénom</label>
-            <input  tabindex="1" type="text" name="prenom" id="prenom" aria-label="Entrez votre prénom">
+						<label  for="prenom">Prénom</label>
+            <input  tabindex="1" type="text" name="fistname" id="prenom" aria-label="Entrez votre prénom">
             <p id="prenom-error" style="color:red;"></p>
-            <label form="nom">Nom</label>
-            <input  tabindex="1" type="text" name="nom" id="nom"  aria-label="Entrez votre nom">
+            <label for="nom">Nom</label>
+            <input  tabindex="1" type="text" name="lastname" id="nom"  aria-label="Entrez votre nom">
             <p id="nom-error" style="color:red;"> </p>
 
-            <label form="email">Email</label>
-            <input  tabindex="1" type="text" name="Email" id="email"  aria-label="Entrez votre Email">
+            <label for="email">Email</label>
+            <input  tabindex="1" type="text"  name="Email" id="email"  aria-label="Entrez votre Email">
             <p id="Email-error" style="color:red;"></p>
 
-            <label form="message">Votre message</label>
-            <textarea  tabindex="1" name="message" id="message"  rows="10"  aria-label="Ajouter un commentaire"></textarea>
+            <label for="message">Votre message</label>
+            <textarea  tabindex="1" type="text" name="message" id="message"   aria-label="Ajouter un commentaire"></textarea>
             <p id="message-error" style="color:red;"></p>
 
 					
@@ -77,7 +79,7 @@
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer1.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
 
   </body>

@@ -12,44 +12,42 @@ async function fetchPhotographers() {
 }
 
 async function init() {
-  // console.log("execution init");
-  // Récupère les datas des photographes
-  // console.log("etape recuperation des donnees");
+  
   const url_id = window.location.search;
-  // console.log(url_id);
+  
   const urlSearchParams = new URLSearchParams(url_id);
-  // console.log(urlSearchParams);
+  
   const leId = parseFloat(urlSearchParams.get("id"));
-  // console.log(leId);
+  
 
   const data = await fetchPhotographers();
-  //  console.log(data);
+  
 
   
 
   const photographer = data.photographers.find(
     (element) => element.id === leId
   );
-  // console.log(photographer);
+  
 
-  // console.log(photographer);
   const photographerHeader = document.querySelector("#header");
-  //  console.log(photographerHeader);
+
   const photographerHeader__content = document.createElement("div");
-  // console.log(photographerHeader__content);
+  
   photographerHeader__content.className = "photograph-header";
   photographerHeader__content.innerHTML = `
         
         
-    <div tabindex="0"  classe="profil">
+    <div  classe="profil">
     <h1  tabindex="0">${photographer.name}</h1>
     <h2  tabindex="0">${photographer.city},${photographer.country}</h2>
     <p  tabindex="0">${photographer.tagline}</p>
     </div>
     <button  tabindex="0"      class="contact_button" aria-label="Contactez moi, ouvrir le formulaire">Contactez-moi</button>
-    <img  tabindex="0" class="portrait" src="assets/Sample_Photos/ID/${photographer.portrait}" alt="photo de profil,${photographer.name}">`;
+    <img  tabindex="0" class="portrait" src="assets/Sample_Photos/ID/${photographer.portrait}" alt="photo de profil du photographer"${photographer.name}">`;
 
   photographerHeader.appendChild(photographerHeader__content);
+
   const contact_button = document.querySelector(".contact_button");
 
   contact_button.addEventListener('click',()=>{
@@ -57,54 +55,39 @@ async function init() {
   })
 }
 
-// const hidden=document.querySelector(".hidden");
+
 
 const btn = document.querySelector(".button-tri");
 const option = document.querySelector(".list-option");
-// const icon = document.querySelector("i");
-// let angleIcon = document.getElementById('angle');
+
+let angleIcon = document.getElementById('angle1');
 
 btn.addEventListener("click", () => {
-  window.location.hash = "";
+   window.location.hash = "";
   option.classList.toggle("active");
    btn.style.display = "none";
-   window.location.hash = "#my-options";
-
-   
-  //  if(angleIcon.classList.contains("fa-angle-down")){
-  //   angleIcon.className="fa-solid fa-angle-up";
-  //  }else{
-  //   angleIcon.className="fa-solid fa-angle-down";
-
-  //  }
+   angleIcon.style.display ="none";
+  
+    window.location.hash = "#my-options";
   
 });
 
+   
+  
+  
+
 const optionTri = document.querySelectorAll(".option-tri");
-//  console.log(optionTri);
+
 
 optionTri.forEach((elt) => {
   elt.addEventListener("click", () => {
     btn.innerHTML = elt.innerHTML;
+     angleIcon.style.display ="block";
     btn.style.display = "block";
     option.classList.remove("active");
   });
 });
 
-
-// const dropdown = document.querySelector('.dropdown');
-// dropdown.addEventListener('keydown',(event)=>{
-//   if(event.key === "Enter"){
-//     window.location.hash = "";
-//   option.classList.toggle("active");
-//    btn.style.display = "none";
-//    window.location.hash = "#my-options";
-//   }else if (event.key = "Escape"){
-//     option.classList.remove("active");
-//     btn.style.display = "block";
-    
-//   }
-// })
 
 
 function dynamicSort(property) {
@@ -119,21 +102,22 @@ function dynamicSort(property) {
 }
 async function orderDisplayGallery() {
   const url_id = window.location.search;
-  // console.log(url_id);
+  
   const urlSearchParams = new URLSearchParams(url_id);
-  // console.log(urlSearchParams);
+  
   const leId = parseFloat(urlSearchParams.get("id"));
-  // console.log(leId);
+  
 
   const data = await fetchPhotographers();
-  //  console.log(data);
+  
   const photographer = data.photographers.find(
     (element) => element.id === leId
   );
-  // console.log(photographer);
+ 
+  
 
   const media = data.media.filter((element) => element.photographerId === leId);
-  // console.log(media);
+  
 
   const selectButton = document.querySelectorAll(".option-tri");
 
@@ -186,7 +170,7 @@ function displaygallery(photographer, media) {
      <h3 tabindex="0" class="title" role="titre" aria-label="${element.title}">${element.title}</h3>
      <div class="discription__like"> 
      <p  tabindex="0" class="likes" aria-label="Nombre de likes">${element.likes}</p>
-     <span tabindex="0" class="like-heart" role="button" aria-label="likes"><i class="far fa-regular fa-heart" aria-hidden ="true"></i></span>
+     <span tabindex="0" class="like-heart" role="button" aria-label="likes"><em class="far fa-regular fa-heart" ></em></span>
      </div>
      </div>
     </div>`);
@@ -194,14 +178,14 @@ function displaygallery(photographer, media) {
       return (gallery =
         gallery +
         `<div class="card" >
-   <img   tabindex="0" id="${element.id}" class="image"  src="assets/Sample_Photos/${
+   <img   tabindex="0" id="${element.id}" class="image" alt="${element.title}" src="assets/Sample_Photos/${
           photographer.name.split(" ")[0]
-        }/${element.image}" alt="${element.title} aria-label="${element.title}"  ></img>
+        }/${element.image}"  aria-label="${element.title}"  ></img>
    <div class="discription">
    <h3 tabindex="0" class="title" role="titre" aria-label="${element.title}">${element.title}</h3>
    <div class="discription__like"> 
    <p  tabindex="0" class="likes" aria-label="nombre de likes">${element.likes}</p>
-   <span  tabindex="0" class="like-heart" role="button" aria-label="likes"><i class="far fa-regular fa-heart" aria-hidden ="true"></i></span>
+   <span  tabindex="0" class="like-heart" role="button" aria-label="likes"><em class="far fa-regular fa-heart" ></em></span>
    </div>
    </div>
    </div>`);
@@ -213,13 +197,14 @@ function displaygallery(photographer, media) {
 
   const photographerHeader = document.querySelector("#gallery");
   const photographerMain = document.createElement("div");
-  // // console.log(photographerHeader__content);
+  
   photographerMain.className = "photos";
   photographerMain.innerHTML = gallery;
 
   photographerHeader.appendChild(photographerMain);
   
-  //  intialiser la liste LIKES par des 0 suivant le nombre total des media de ce photograph
+  //........  intialiser la liste LIKES par des 0 suivant le nombre total des media de ce photograph
+
    LIKES = new Array();
   //  media.forEach(element => LIKES.push(0));
    
@@ -228,15 +213,15 @@ function displaygallery(photographer, media) {
   likeButton.forEach((button,index) =>{
 
     button.addEventListener('keydown', (event)=>{
-      // button.innerHTML = ""
+      
 
 
       if(event.key==="Enter"){
 
         if(button.firstElementChild.classList.contains('fa-solid')){
-          button.innerHTML = `<i class="far fa-regular fa-heart"></i>`;
+          button.innerHTML = `<em class="far fa-regular fa-heart"></em>`;
         }else{
-          button.innerHTML = `<i class="fas fa-solid fa-heart"></i>`;
+          button.innerHTML = `<em class="fas fa-solid fa-heart"></em>`;
         }
   
 
@@ -251,7 +236,6 @@ function displaygallery(photographer, media) {
         discriptionLikes.firstElementChild.textContent = Number(discriptionLikes.firstElementChild.textContent) -1 ;
         LIKES[index]=0;
       }
-      // console.log(LIKES);
 
       
       let totallikes = 0;
@@ -266,12 +250,12 @@ function displaygallery(photographer, media) {
     });
 
     button.addEventListener('click', ()=>{
-      // button.innerHTML = ""
+      
      
       if(button.firstElementChild.classList.contains('fa-solid')){
-        button.innerHTML = `<i class="far fa-regular fa-heart"></i>`;
+        button.innerHTML = `<em class="far fa-regular fa-heart"></em>`;
       }else{
-        button.innerHTML = `<i class="fas fa-solid fa-heart"></i>`;
+        button.innerHTML = `<em class="fas fa-solid fa-heart"></em>`;
       }
 
       const discriptionLikes = button.parentElement;
@@ -285,7 +269,7 @@ function displaygallery(photographer, media) {
         discriptionLikes.firstElementChild.textContent = Number(discriptionLikes.firstElementChild.textContent) -1 ;
         LIKES[index]=0;
       }
-      // console.log(LIKES);
+      
 
       
       let totallikes = 0;
@@ -313,7 +297,7 @@ function displaygallery(photographer, media) {
       lightBox.style.display = "block";
     });
     document
-      .querySelector(".next >button:nth-child(2) i")
+      .querySelector(".next >button:nth-child(2) em")
       .addEventListener("click", () => {
         lightBox.style.display = "none";
       });
@@ -322,7 +306,7 @@ function displaygallery(photographer, media) {
     document.querySelectorAll("#gallery .card img,video")
   );
 
-  // console.log(picture);
+  
   
   let newSrc = null;
   picture.forEach((element) => {
@@ -388,29 +372,28 @@ function displaygallery(photographer, media) {
 
 async function lightbox() {
   const url_id = window.location.search;
-  // console.log(url_id);
+  
   const urlSearchParams = new URLSearchParams(url_id);
-  // console.log(urlSearchParams);
+  
   const leId = parseFloat(urlSearchParams.get("id"));
-  // console.log(leId);
 
   const data = await fetchPhotographers();
-  //  console.log(data);
+  
   const photographer = data.photographers.find(
     (element) => element.id === leId
   );
 
   let media = data.media.filter((element) => element.photographerId === leId);
-  // console.log(media);
+  
   const lightBox = document.querySelector(".lightbox");
   const lightBox__content = document.createElement("div");
   lightBox__content.className = "content";
 
-  // console.log(lightBox__content);
+  
   lightBox__content.innerHTML = `
              <div    class="prev">
              <button  tabindex="0" >
-             <i class="fa-solid fa-angle-left" aria-label="image precedente"></i>
+             <em class="fa-solid fa-angle-left" aria-label="image precedente"></em>
              </button>
   
              </div>
@@ -424,9 +407,9 @@ async function lightbox() {
              </div>
              <div  class="next">
              <button  tabindex="0"> 
-             <i class="fa-solid fa-angle-right" aria-label="image suivante"></i>
+             <em class="fa-solid fa-angle-right" aria-label="image suivante"></em>
              </button>
-             <button tabindex="0" ><i class="fa-solid fa-xmark" aria-alabel="button fermeture"></i></button>
+             <button tabindex="0" ><em class="fa-solid fa-xmark" aria-alabel="button fermeture"></em></button>
              </div>
              
              `;
@@ -438,7 +421,7 @@ async function lightbox() {
   content.appendChild(photo);  
 
 
-  // console.log(media);
+  // ......récupérer les button next et prev de la lightbox
 
   let nextButton = document.querySelector(
     ".lightbox .content .next >button:first-of-type"
@@ -446,6 +429,8 @@ async function lightbox() {
   let prevButton = document.querySelector(
     ".lightbox .content .prev >button:first-of-type"
   );
+
+  // ....afficher les images dans la lightbox
 
   function displayLightBoxMedia(index) {
     let newImage = media[index];
@@ -461,9 +446,9 @@ async function lightbox() {
     } else {
       document.querySelector(
         ".div-photo"
-      ).innerHTML = `<img   tabindex="0" class="image"   src="assets/Sample_Photos/${
+      ).innerHTML = `<img   tabindex="0" class="image" alt="${newImage.title}"  src="assets/Sample_Photos/${
         photographer.name.split(" ")[0]
-      }/${newImage.image}"  alt="${newImage.title}" aria-label="${newImage.title}">
+      }/${newImage.image}"  aria-label="${newImage.title}">
       <p tabindex="0">${newImage.title}</p>`;
     }
   }
@@ -475,12 +460,14 @@ async function lightbox() {
     }
     displayLightBoxMedia(CURRENT_INDEX);
   });
+
+  // .... gerer les evenemnts clavier pour la lightbox
  
   document.addEventListener('keydown', (event) => {
     var name = event.key;
 
-    // si mon lightbox est off j'ignore les evenements clavier
-    // console.log(lightBox.style.display);
+  // .... si mon lightbox est off j'ignore les evenements clavier
+    
     if(lightBox.style.display != 'block'){
       return ;
     }
@@ -516,7 +503,6 @@ async function lightbox() {
     displayLightBoxMedia(CURRENT_INDEX);
   });
 
-  //   });
 }
 
 
@@ -524,23 +510,22 @@ async function aside() {
   const url_id = window.location.search;
   // console.log(url_id);
   const urlSearchParams = new URLSearchParams(url_id);
-  // console.log(urlSearchParams);
+  //  console.log(urlSearchParams);
   const leId = parseFloat(urlSearchParams.get("id"));
-  // console.log(leId);
 
   const data = await fetchPhotographers();
-  //  console.log(data);
+  
   const photographer = data.photographers.find(
     (element) => element.id === leId
   );
-  // const media=data.media.filter((element)=>element.photographerId === leId);
+  
   const asideDvi = document.querySelector(".aside-div");
 
-  // console.log(asideCentent);
+  
 
   const asideCentent = ` <div tabindex="0" class="likes">
       <span  tabindex="0" id="total-likes" role="button" aria-label="total likes"> </span>
-      <i class="fas fa-heart "></i>
+      <em class="fas fa-heart "></em>
       </div>
   
       <p  tabindex="0" aria-label="prix par jour">${photographer.price} €/jour </p>`;

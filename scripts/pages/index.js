@@ -9,7 +9,7 @@ function photographerFactory(data) {
   console.log("recuperation des photos");
 
   function getUserCardDOM() {
-      //debugger;
+    
       const article = document.createElement( 'article' );
       const link = document.createElement('a');
       link.className ="card__link";
@@ -67,7 +67,7 @@ function photographerFactory(data) {
         
 async function displayData(photographers) {
 
-    console.log("etape 4  debut injection de l html");
+    
     const photographersSection = document.querySelector(".photographer_section");
      
 
@@ -76,27 +76,21 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-    console.log("fin d injection de l html");
+    
 
 }
 
 async function init() {
-
-    console.log("execution init");
-    // Récupère les datas des photographes
-    console.log("etape recuperation des donnees");
-
-    
 
     const  photographers  = await getPhotographers();
     displayData(photographers);
 
 
 }
-console.log("etape 1: debut  init")
+
 
 init();
-console.log("fin init");
+
     
     
 

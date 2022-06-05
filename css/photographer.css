@@ -68,12 +68,7 @@ main .photograph-header .portrait{
     gap: 1rem;
     margin-left: 90px;
 }
-/* .menu_tri label{
-    font-weight: 600;
-    font-size: 18px;
-    padding-top: 20px;
-    margin-left: 10px;
-} */
+
 
 .menu_tri .dropdown {
     width: 120px;
@@ -91,13 +86,9 @@ main .photograph-header .portrait{
     
 }
 
-.menu_tri .dropdown p{
-    /* position: relative; */
-    
+.menu_tri .dropdown p{    
     background-color: #901C1C;
-    
     border: none;
-
     color: white;
     text-align: start;
     padding-left: 0px;
@@ -106,25 +97,7 @@ main .photograph-header .portrait{
     font-weight: 500;
     z-index: 1;
 }
-/* .menu_tri .dropdown p::after{ */
 
-/* } */
-/* .menu_tri .dropdown .listBox{ 
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-
-} */
-/* .menu_tri .dropdown .listBox p{
-    font-size: inherit;
-    color: white;
-}
-.menu_tri .dropdown .listBox i{
-    color: white;
-
-} */
 .menu_tri .dropdown .list-option{
 
 
@@ -136,10 +109,7 @@ main .photograph-header .portrait{
     display: block;
 
 }
-/* .menu_tri .dropdown .list-option >button:nth-of-type(2){
-     border-top: 1px solid white;
-     border-bottom: 1px solid white;
-} */
+
 
 .menu_tri .dropdown .option-tri{
     
@@ -153,7 +123,7 @@ main .photograph-header .portrait{
     text-align: start;
     padding-left: 0px;
     padding: 0px 10px;
-     /* border-top: 1px solid white;  */
+    
 
 }
 .menu_tri .dropdown .list-option >div:nth-child(2) button {
@@ -164,7 +134,7 @@ main .photograph-header .portrait{
     border-top: 1px solid white; 
 }
 
-.menu_tri .dropdown i{
+.menu_tri .dropdown em{
     z-index: 2;
     font-size: 1em;
     color: white;
@@ -172,6 +142,7 @@ main .photograph-header .portrait{
     top: 19px;
     right: 12px;
 }
+
 
 .photos{
     width: calc(100% - 200px);
@@ -222,7 +193,7 @@ main .photograph-header .portrait{
     color: #901C1C;
 }
 
-.card .discription__like i{
+.card .discription__like em{
     color: #901C1C;
     cursor: pointer;
     font-size: 25px;
@@ -247,7 +218,7 @@ main .photograph-header .portrait{
     font-size: 25px;
 }
 
-.aside-div .likes i{
+.aside-div .likes em{
     
     font-size: 23px;
     font-weight: 600;
@@ -286,6 +257,7 @@ main .photograph-header .portrait{
     
 
 }
+
 
 .modal-header h2 {
     font-size: 40px;
@@ -381,7 +353,7 @@ form #submit-button{
     border: none;
     color: #FAFAFA;
 }
-.lightbox .content .prev button i{
+.lightbox .content .prev button em{
     font-size: 35px;
     
 } 
@@ -411,9 +383,7 @@ height: 100%;
     margin-top: 18px;
     border-radius: 5px;
 }
-/* .lightbox .content .container .picture .div-photo .image{
-    display: block;
-} */
+
 
 .lightbox .content .container .picture .div-photo video{
     width: 100%;
@@ -457,10 +427,10 @@ height: 100%;
     color: #FAFAFA;
 }
 
-.lightbox .content .next >button:first-of-type i{
+.lightbox .content .next >button:first-of-type em{
     font-size: 35px;
 }
-.lightbox .content .next >button:nth-child(2) i{
+.lightbox .content .next >button:nth-child(2) em{
     font-size: 35px;
 }
 
@@ -470,10 +440,9 @@ height: 100%;
     height: 52.8px;
     background-color: #901C1C;
     font-size: inherit;
-    border: none;
-    /* border-top: 1px solid white; */
+    border: none; 
     color: white;
     text-align: start;
     padding-left: 0px;
     padding: 0px 10px;
-}
+}   
