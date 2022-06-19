@@ -62,6 +62,18 @@ main .photograph-header .portrait{
     object-fit: cover;
 }
 
+.button-tri{
+    width: 120px;
+    height: 52.8px;
+    background-color: #901C1C;
+    font-size: inherit;
+    border: none; 
+    color: white;
+    text-align: start;
+    padding-left: 0px;
+    padding: 0px 10px;
+}  
+
 .menu_tri{
     position: absolute;
     display: flex;
@@ -217,15 +229,14 @@ main .photograph-header .portrait{
     align-items: center;
     font-size: 25px;
 }
-
+/* 
 .aside-div .likes em{
     
     font-size: 23px;
     font-weight: 600;
-}
+} */
 .aside-div p{
-    font-weight: 600;
-    font-size: 23px;
+    font-size: 25px;
 }
 .modal {
     display: block;
@@ -309,140 +320,74 @@ form #submit-button{
     border-radius: 5px;
     cursor: pointer;
 }
-.lightbox{
-    z-index: 10;
 
-    display: none;
+
+.lightbox {
     position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-color:white;
-    
-}
-.lightbox .content{
-    position:fixed;
-    height: calc(100% - 100px);
+    top: 0;
+    left: 0;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    justify-content: space-around;
-    width: 1000px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #901C1C;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 99;
+    
+}
 
-} 
-     
-.lightbox .content .prev{
+.lightbox:focus {
+    outline: none;
+}
+
+.lightbox button{
+    font-size: 50px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: inherit;
+    color: #901C1C;
+}
+
+.lightbox .lightbox-left,.lightbox-right {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 100px;
-    height: 100px;
-
-}
-.lightbox .content .prev button{
-   
-    position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
-    background-color: #901C1C;
-    border: none;
-    color: #FAFAFA;
-}
-.lightbox .content .prev button em{
-    font-size: 35px;
-    
-} 
-.lightbox .content .container{
-    width: 350px;
-    height: 90%;
-    margin-top: 30px;
-}
-.lightbox .content .container .picture{
-height: 100%;
-   width: 100%;
-
-}
-
-
-.lightbox .content .container .picture .div-photo{
-    height: 100%;
-    width: 100%;
-    
-}
-.lightbox .content .container .picture .div-photo .image
-{
-    display: block;
-    width: 100%;
-    height: 90%;
-    object-fit: cover;
-    margin-top: 18px;
-    border-radius: 5px;
-}
-
-
-.lightbox .content .container .picture .div-photo video{
-    width: 100%;
-    height: 90%;
-    margin-top: 18px;
-    border-radius: 5px;
-}
-.lightbox .content .container .picture .div-photo p{
-    font-size: 18px;
-    color: #FAFAFA;
-}
-
-.lightbox .content .next{
-    
-   
-    width: 100px;
-    height: 100%;
-    flex-direction:column-reverse;
     align-items: center;
-    justify-content: space-between;
-    
+    position: relative;
+    flex: 1;
 }
-
-
-.lightbox .content .next >button:first-of-type{
-   
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #901C1C;
-    border: none;
-    color: #FAFAFA;
-}
-.lightbox .content .next >button:nth-child(2){
-   
+.lightbox .lightbox-right .close {
     position: absolute;
     top: 20px;
-    
-    background-color: #901C1C;
-    border: none;
-    color: #FAFAFA;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+.lightbox .lightbox-content{
+    display: flex;
+    justify-content: center;
+    padding: 120px 0px;
+    font-size: 24px;
+}
+.lightbox .lightbox-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+    width: 700px;
+    align-items: center;
+}
+.lightbox .lightbox-content div img, 
+.lightbox .lightbox-content div video {
+    object-fit: cover;
+    border-radius: 0.3em;
+    max-height: 100%;
+    max-width: 100%;
+}
+.lightbox .lightbox-content div p {
+    position: relative;
+    top: 10px;
+    color: #901C1C;
 }
 
-.lightbox .content .next >button:first-of-type em{
-    font-size: 35px;
-}
-.lightbox .content .next >button:nth-child(2) em{
-    font-size: 35px;
-}
 
 
-.button-tri{
-    width: 120px;
-    height: 52.8px;
-    background-color: #901C1C;
-    font-size: inherit;
-    border: none; 
-    color: white;
-    text-align: start;
-    padding-left: 0px;
-    padding: 0px 10px;
-}   
+ 
