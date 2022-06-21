@@ -7,20 +7,22 @@ class Lightbox {
           
         const generatedDOMMedias = Array.from(document.querySelectorAll(".card img, video"));
 
-        
         const generatedDOMTitles = Array.from(document.querySelectorAll('.title'));
-
-
-
+        
         const tabUrls = generatedDOMMedias.map(media => media.getAttribute('src'));
+        console.log(tabUrls)
       
         const titles = generatedDOMTitles.map(title => title.innerText);
+        console.log(titles)
 
         
         for (let i=0; i < generatedDOMMedias.length; i++ ) {
             const media = generatedDOMMedias[i];
-            const mediaUrl = media.getAttribute('src');   
+            console.log(media)
+            const mediaUrl = media.getAttribute('src'); 
+            console.log(mediaUrl)  
             const title = titles[i];
+
             media.addEventListener("click", () => {
                 const beforeElementFocus = document.activeElement;
                 new Lightbox (mediaUrl, tabUrls, title, titles, beforeElementFocus);

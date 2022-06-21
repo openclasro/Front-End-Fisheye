@@ -16,15 +16,7 @@ class Images {
     this.liked = false;
   }
 
-  like() {
-    if (this.liked) {
-      this.likes--;
-    } else {
-      this.likes++;
-    }
-
-    this.liked = !this.liked;
-  }
+ 
   getMediaCardDOM() {
     const card = document.createElement('div');
     card.className = 'card';

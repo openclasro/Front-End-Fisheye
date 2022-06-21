@@ -1,6 +1,7 @@
 
 /* exported PhotographerFactory */
 class PhotographerFactory{
+    
     constructor(data){
         this.data = data;
 

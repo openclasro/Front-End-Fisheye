@@ -2,6 +2,7 @@
 
 
 class Form {
+  
   constructor(photographer) {
     const contact_button = document.querySelector('.contact_button');
     contact_button.addEventListener('click', () => this.displayModal(photographer));

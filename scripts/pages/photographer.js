@@ -28,8 +28,10 @@ async function init() {
   );
 
   const media = data.media.filter((element) => element.photographerId === leId);
-  const headerphotographer = new HeaderPhotographerFactory(photographer);
-  headerphotographer.init();
+  console.log(media)
+   const headerphotographer = new HeaderPhotographerFactory(photographer);
+   headerphotographer.init();
+
   new GalleryManager(media,photographer);
   const sidePhotographerFactory = new SidePhotographerFactory(photographer);
   sidePhotographerFactory.init();

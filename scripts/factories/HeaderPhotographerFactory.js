@@ -19,7 +19,7 @@ class HeaderPhotographerFactory{
         photographerHeader__content.className = 'photograph-header';
         photographerHeader__content.innerHTML = `
       
-        <div  classe="profil">
+        <div  class="profil">
         <h1  tabindex="0">${this.photographer.name}</h1>
         <h2  tabindex="0">${this.photographer.city},${this.photographer.country}</h2>
         <p  tabindex="0">${this.photographer.tagline}</p>

@@ -74,7 +74,7 @@ class GalleryManager{
 
       triGallery(property){
         const tempMedia = this.media.sort(this.dynamicSort(property));
-        console.log(tempMedia);
+    
       }  
 
 

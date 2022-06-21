@@ -2,6 +2,7 @@
 
  
  class LightboxContainer {
+    
     buildDOM () {
         const lightbox = document.createElement("div");
         lightbox.classList = "lightbox";

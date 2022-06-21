@@ -4,16 +4,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 async function getPhotographers() {
       
     console.log("début import des donnees");
@@ -26,10 +16,10 @@ async function getPhotographers() {
 
   );
 }
- 
-  
-  
-      
+
+
+
+
 
 
 async function init() {
@@ -42,7 +32,17 @@ async function init() {
 }
 
 
+
 init();
+
+ 
+  
+  
+      
+
+
+
+
 
   
   
